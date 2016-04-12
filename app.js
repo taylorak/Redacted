@@ -9,4 +9,8 @@ app.post('/message', replaceWords(blacklist), function(req, res) {
   res.json({ message : req.body.message});
 });
 
-app.listen(3000);
+if(!module.parent) {
+  app.listen(3000);
+}
+
+module.exports = app;
